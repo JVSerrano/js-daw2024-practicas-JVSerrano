@@ -10,7 +10,7 @@ let data = [
 {name: "Laura", telephone: "633663366", age: 17}
 ];
 
-a)	Añade dos elementos al final:
+a)	Añade dos elementos al final: 
 {name: "Pedro", telephone: "611944444", age: 25},
 {name: "Julia", phone: "633232323", age: 37}
 
