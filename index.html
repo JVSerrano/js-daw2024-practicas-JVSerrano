@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // 1. Crea un array llamado paises que contenga: "España", "Francia", "Alemania", "Italia". Recorre el array e imprime el nombre de cada país. Después, elimina el primer país del array y vuelve a recorrerlo e imprimir el array de nuevo.
+
+
+        let paises = ['España', 'Francia', 'Alemania', 'Italia']
+
+
+        for (pais of paises) {
+            document.write(pais + ' ')
+        }
+
+
+        paises.shift()
+        for (pais of paises) {
+            document.write(pais + ' ')
+        }
+
+        // 2. Crea un array vacío llamado letras. Inserta al principio del array las letras A, B y C. Luego, inserta al final las letras D y E. Finalmente, elimina el primer elemento y el último, e imprime el array final.
+        let letras = ['A', 'B', 'C']
+
+
+        letras.push('D', 'E')
+
+
+        letras.shift()
+        letras.pop()
+
+        for (letra of letras) {
+            document.write(letra)
+        }
+
+        // 3. Crea el siguiente array:
+
+        let data = [
+            { name: "Nacho", telephone: "966112233", age: 40 },
+            { name: "Ana", telephone: "911223344", age: 35 },
+            { name: "Mario", phone: "611998877", age: 15 },
+            { name: "Laura", telephone: "633663366", age: 17 }
+        ];
+
+        // a) Añade dos elementos al final
+        data.push({ name: "Pedro", telephone: "611944444", age: 25 }, { name: "Julia", phone: "633232323", age: 37 })
+
+        //b) Comprueba que se han añadido
+        console.log(data)
+
+        // c) Ordena el vector por edad, comprueba el resultado
+        data.sort((a, b) => b.age - a.age)
+
+        console.log(data)
+
+        // d)Ordena el vector por nombre, comprueba el resultado.
+        data.sort((a, b) => a.name.localeCompare(b.name))
+
+        console.log(data)
+
+
+        // e)Crea un nuevo vector que contenga solo los mayores de 30 años
+        let mayores = data.filter(data => data.age > 30)
+
+        console.log(mayores)
+
+        // 4. Crea un array llamado numeros.Usa desestructuracion para obtener los primeros dos numeros en variables individuales y almacena el resto de los números en un array llamado resto.
+
+        let numeros = [34, 56, 12, 8, 56, 79, 123, 4]
+
+        //Coger el primer y segundo valor
+        let firstNum = numeros[0];
+        console.log(firstNum)
+        let secondNum = numeros[1]
+        console.log(secondNum)
+
+        //Guardar el resto de los numeros en un array
+        let resto = numeros.slice(2)
+        console.log(resto)
+
+
+        // 5. Crea un array llamado valores que contenga números, algunos de los cuales son duplicados. Utiliza un Set para crear un nuevo array que contenga solo los números únicos y luego imprímelo.
+        // PD: no he entendido lo del set
+
+        let valores = [1, 2, 3, 4, 4, 3, 5, 6, 2, 1];
+
+        let newArray = valores.filter((num, index, arr) => arr.indexOf(num) === arr.lastIndexOf(num));
+
+        console.log(newArray)
+
+
+        // 6. Crea un Map que almacene nombres como claves y edades como valores. Luego, agrega algunos nombres y edades, actualiza la edad de uno de ellos, y finalmente imprime todos los nombres con sus edades.
+
+        const personas = new Map();
+
+        personas.set("Pedro", 25);
+        personas.set("Ana", 30);
+        personas.set("Juan", 35);
+        personas.set("Maria", 40);
+
+        personas.set("Pedro", 26);
+
+        personas.forEach((value, key) => {
+            console.log(key, value);
+        });
+
+
+
+        // 7. Mostrar por consola 50 combinaciones aleatorias de la lotería primitiva. Las combinaciones son 6 números del 1 al 49, pero debe tenerse en cuenta que no se pueden repetir los números en una misma combinación.
+
+        let combinaciones = [];
+
+
+        for (let i = 0; i < 50; i++) {
+            let combinacion = [];
+
+            while (combinacion.length < 6) {
+                let numeroAleatorio = Math.floor(Math.random() * 49) + 1;
+
+                if (!combinacion.includes(numeroAleatorio)) {
+                    combinacion.push(numeroAleatorio);
+                }
+            }
+            combinaciones.push(combinacion);
+
+        }
+        console.log(combinaciones);
+
+
+        // 8. Se desea validar hasta qué punto la función Math.random es realmente aleatoria. Para tal fin, calcularemos 10.000 veces números aleatorios del 1 al 10. Por consola mostraremos cada número del 1 al 10 y a continuación el número de veces que ha salido ese número. 
+
+        let frecuencias = Array(10).fill(0);
+
+        for (let i = 0; i < 10000; i++) {
+            let numeroAleatorio = Math.floor(Math.random() * 10) + 1; 
+            frecuencias[numeroAleatorio - 1]++; 
+        }
+        
+        console.log("Frecuencias:");
+        for (let i = 0; i < frecuencias.length; i++) {
+            console.log(`Número ${i + 1}: ${frecuencias[i]}`);
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
