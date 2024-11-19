@@ -1,0 +1,16 @@
+body{
+    margin: 0;
+}
+
+h1{
+    color: white;
+}
+
+.container{
+    background-color: black;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+}
